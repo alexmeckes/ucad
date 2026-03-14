@@ -17,6 +17,7 @@
     "@ucad/harness-sdk-stdio": "workspace:*",
     "@ucad/orchestrator": "workspace:*",
     "better-sqlite3": "^11.8.1",
+    "dompurify": "^3.3.3",
     "highlight.js": "^11.11.1",
     "marked": "^17.0.3",
     "node-pty": "^1.0.0",
@@ -24,6 +25,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@types/dompurify": "^3.2.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",

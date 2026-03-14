@@ -74,7 +74,12 @@ function ThreadItem({
   const model = parts.length > 1 ? parts[1] : null;
   const stateKey = session.state.toLowerCase();
   const isWaiting = stateKey === "waiting_for_approval";
+  const isFork = session.parentSessionId !== null;
   const children = sessionChildren.get(session.id) ?? [];
+  const strategy = session.workspaceStrategy?.toLowerCase();
+  const strategyLabel = strategy && strategy !== "local"
+    ? strategy === "worktree" ? "WT" : strategy === "snapshot" ? "SNAP" : strategy.toUpperCase()
+    : null;
 
   return (
     <>
@@ -84,6 +89,7 @@ function ThreadItem({
         style={depth > 0 ? { paddingLeft: `${8 + depth * 12}px` } : undefined}
         onClick={() => onSelect(session.id)}
       >
+        {isFork && depth > 0 && <span className="thread-fork-indicator" title="Forked thread">{"\u21B3"}</span>}
         <span
           className={`thread-status-dot session-state-${stateKey}`}
           title={session.state}
@@ -96,6 +102,7 @@ function ThreadItem({
           <div className="thread-meta">
             <span className="thread-adapter">{adapter}</span>
             {model && <span className="thread-model">{model}</span>}
+            {strategyLabel && <span className="thread-strategy">{strategyLabel}</span>}
             {isWaiting && <span className="thread-approval">Needs approval</span>}
             {stateKey === "interrupted" && <span className="thread-interrupted">Resumable</span>}
           </div>

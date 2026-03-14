@@ -1,11 +1,11 @@
 import { useMemo } from "react";
 import { marked } from "marked";
+import DOMPurify from "dompurify";
 
 interface MarkdownProps {
   content: string;
 }
 
-// Configure marked for safe output
 marked.setOptions({
   breaks: true,
   gfm: true,
@@ -14,9 +14,10 @@ marked.setOptions({
 export function Markdown({ content }: MarkdownProps) {
   const html = useMemo(() => {
     try {
-      return marked.parse(content) as string;
+      const raw = marked.parse(content) as string;
+      return DOMPurify.sanitize(raw);
     } catch {
-      return content;
+      return DOMPurify.sanitize(content);
     }
   }, [content]);
 

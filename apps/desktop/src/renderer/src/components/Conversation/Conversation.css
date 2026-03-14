@@ -90,9 +90,84 @@
   font-weight: 600;
 }
 
+.conversation-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.conversation-search-input {
+  width: 160px;
+  padding: 3px 8px;
+  font-size: 12px;
+  color: var(--text);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  font-family: var(--font-sans);
+}
+
+.conversation-search-input:focus {
+  border-color: var(--border-focus);
+}
+
+.conversation-search-count {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.conversation-search-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+  opacity: 0.6;
+}
+
+.conversation-search-btn:hover,
+.conversation-search-btn.active {
+  color: var(--text);
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+  opacity: 1;
+}
+
 .conversation-header-project {
   font-size: 11px;
   color: var(--text-muted);
+}
+
+/* Resume banner */
+.conversation-resume-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  margin-bottom: 8px;
+  background: color-mix(in srgb, var(--yellow) 8%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--yellow) 20%, var(--border));
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  color: var(--yellow);
+}
+
+.conversation-resume-hint {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+/* Search dimming */
+.search-dimmed {
+  opacity: 0.2;
+  transition: opacity 0.15s;
 }
 
 /* ── Conversation body ── */
