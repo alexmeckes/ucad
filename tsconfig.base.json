@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@ucad/contracts": ["packages/contracts/src/index.ts"],
+      "@ucad/storage-sqlite": ["packages/storage-sqlite/src/index.ts"],
+      "@ucad/policy-engine": ["packages/policy-engine/src/index.ts"],
+      "@ucad/workspace-manager": ["packages/workspace-manager/src/index.ts"],
+      "@ucad/review-engine": ["packages/review-engine/src/index.ts"],
+      "@ucad/adapter-sdk": ["packages/adapter-sdk/src/index.ts"],
+      "@ucad/orchestrator": ["packages/orchestrator/src/index.ts"],
+      "@ucad/codex-cli-adapter": ["packages/adapters/codex-cli/src/index.ts"],
+      "@ucad/claude-cli-adapter": ["packages/adapters/claude-cli/src/index.ts"],
+      "@ucad/gemini-cli-adapter": ["packages/adapters/gemini-cli/src/index.ts"],
+      "@ucad/harness-sdk-stdio": ["packages/harness-sdk-stdio/src/index.ts"]
+    }
+  }
+}

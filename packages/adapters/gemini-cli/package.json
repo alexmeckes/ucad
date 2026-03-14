@@ -1,0 +1,24 @@
+{
+  "name": "@ucad/gemini-cli-adapter",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "echo 'no lint configured for @ucad/gemini-cli-adapter'"
+  },
+  "dependencies": {
+    "@ucad/adapter-sdk": "workspace:*",
+    "@ucad/contracts": "workspace:*"
+  }
+}

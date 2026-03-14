@@ -1,0 +1,29 @@
+{
+  "name": "ucad",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Universal Coding Agent Desktop",
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm --filter @ucad/desktop dev",
+    "scaffold:harness": "node scripts/scaffold-harness.mjs",
+    "rebuild:native:electron": "node scripts/rebuild-electron-native.mjs",
+    "rebuild:native:node": "node scripts/rebuild-node-native.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "node scripts/run-e2e.mjs",
+    "test:e2e:full": "UCAD_RUN_E2E=1 pnpm test:e2e",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.13.10",
+    "tsup": "^8.3.6",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.8"
+  }
+}

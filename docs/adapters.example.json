@@ -1,0 +1,41 @@
+{
+  "adapters": [
+    {
+      "type": "cli",
+      "id": "my-cli",
+      "name": "My CLI",
+      "command": "mycli",
+      "args": ["--interactive"],
+      "authProbeCommand": "mycli",
+      "authProbeArgs": ["auth", "status"],
+      "authProbeUnauthenticatedPatterns": ["not logged in", "unauthorized", "login required"],
+      "installHintCommand": "brew install mycli",
+      "authHintCommand": "mycli login",
+      "capabilities": {
+        "structuredEvents": false,
+        "supportsPatch": false
+      }
+    },
+    {
+      "type": "harness_stdio",
+      "id": "my-harness",
+      "name": "My Harness",
+      "command": "node",
+      "args": ["/absolute/path/to/harness.mjs"],
+      "eventNotificationMethod": "event",
+      "rpcMethods": {
+        "start": "session.start",
+        "sendTurn": "session.turn",
+        "interrupt": "session.interrupt",
+        "resume": "session.resume",
+        "stop": "session.stop"
+      },
+      "capabilities": {
+        "structuredEvents": true,
+        "structuredTools": true,
+        "supportsPatch": true,
+        "supportsMcpPassthrough": true
+      }
+    }
+  ]
+}

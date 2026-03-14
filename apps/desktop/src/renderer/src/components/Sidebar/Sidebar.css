@@ -1,0 +1,557 @@
+/* ── Animations ── */
+@keyframes activity-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.8); opacity: 0.6; }
+}
+
+/* ── Brand header ── */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 14px 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: 0.3px;
+}
+
+/* ── Sections ── */
+.sidebar-section {
+  padding: 4px 8px;
+}
+
+.sidebar-project-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 4px 6px;
+}
+
+/* ── Icon buttons ── */
+.sidebar-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+
+.sidebar-icon-btn:hover {
+  color: var(--text);
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+}
+
+.sidebar-empty {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 12px 8px;
+}
+
+/* ── Project list ── */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.project-group {
+  margin-bottom: 2px;
+}
+
+.project-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+}
+
+.project-item:hover {
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  color: var(--text);
+}
+
+.project-item-active {
+  background: color-mix(in srgb, var(--text) 7%, transparent);
+  color: var(--text-bright);
+}
+
+.project-item-active:hover {
+  background: color-mix(in srgb, var(--text) 9%, transparent);
+}
+
+/* Arc-style project color dot */
+.project-color-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.project-item-name {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text);
+}
+
+.project-item-active .project-item-name {
+  color: var(--text-bright);
+  font-weight: 600;
+}
+
+.project-item-path {
+  margin-left: auto;
+  flex-shrink: 1;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  opacity: 0.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-item-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+  animation: activity-pulse 2s ease-in-out infinite;
+}
+
+/* ── Threads section (under expanded project) ── */
+.project-threads {
+  padding: 4px 0 4px 18px;
+}
+
+.threads-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 8px 4px;
+}
+
+.threads-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.threads-new-btn {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s, background 0.15s, color 0.15s;
+}
+
+.threads-new-btn:hover {
+  opacity: 1;
+  color: var(--text);
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+}
+
+.threads-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.threads-empty {
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.5;
+  padding: 4px 8px;
+}
+
+/* ── Thread item (Codex-style) ── */
+.thread-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+}
+
+.thread-item:hover {
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  color: var(--text);
+}
+
+.thread-item-active {
+  background: color-mix(in srgb, var(--text) 7%, transparent);
+  color: var(--text-bright);
+}
+
+.thread-item-active:hover {
+  background: color-mix(in srgb, var(--text) 9%, transparent);
+}
+
+/* Attention state — thread needs approval */
+.thread-item-attention {
+  background: color-mix(in srgb, var(--yellow) 6%, transparent);
+}
+
+.thread-item-attention:hover {
+  background: color-mix(in srgb, var(--yellow) 10%, transparent);
+}
+
+/* Thread status dot */
+.thread-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+  background: var(--text-muted);
+  opacity: 0.4;
+}
+
+.thread-status-dot.session-state-running {
+  background: var(--green);
+  opacity: 1;
+  animation: activity-pulse 2s ease-in-out infinite;
+}
+
+.thread-status-dot.session-state-completed {
+  background: var(--cyan);
+  opacity: 0.6;
+}
+
+.thread-status-dot.session-state-failed {
+  background: var(--red);
+  opacity: 1;
+}
+
+.thread-status-dot.session-state-interrupted {
+  background: var(--yellow);
+  opacity: 0.7;
+}
+
+.thread-status-dot.session-state-waiting_for_approval {
+  background: var(--yellow);
+  opacity: 1;
+  animation: activity-pulse 2s ease-in-out infinite;
+}
+
+/* Thread content */
+.thread-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.thread-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.thread-title {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.thread-item-active .thread-title {
+  color: var(--text-bright);
+  font-weight: 600;
+}
+
+.thread-time {
+  font-size: 10px;
+  color: var(--text-muted);
+  opacity: 0.5;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+}
+
+.thread-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+}
+
+.thread-adapter {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.thread-model {
+  color: var(--text-muted);
+  opacity: 0.5;
+  font-family: var(--font-mono);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.thread-approval {
+  color: var(--yellow);
+  font-weight: 500;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* ── Quick-start adapter buttons ── */
+.thread-quick-start {
+  display: flex;
+  gap: 4px;
+  padding: 4px 0 2px 8px;
+  flex-wrap: wrap;
+}
+
+.thread-quick-btn {
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+  opacity: 0.7;
+}
+
+.thread-quick-btn:hover {
+  color: var(--text);
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  border-color: var(--border);
+  opacity: 1;
+}
+
+/* ── Bottom actions ── */
+.project-add-btn {
+  display: block;
+  width: 100%;
+  padding: 6px 10px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.15s, background 0.15s;
+  opacity: 0.6;
+}
+
+.project-add-btn:hover {
+  color: var(--text);
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+  opacity: 1;
+}
+
+/* ── Form controls (used in modals) ── */
+.sidebar-select {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+.sidebar-select:focus {
+  border-color: var(--border-focus);
+  outline: none;
+}
+
+.sidebar-select option {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.sidebar-input {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-sizing: border-box;
+}
+
+.sidebar-input:focus {
+  border-color: var(--border-focus);
+  outline: none;
+}
+
+.sidebar-input::placeholder {
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+}
+
+.sidebar-input-mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.sidebar-input-wrap {
+  position: relative;
+}
+
+.sidebar-input-wrap .sidebar-input {
+  padding-right: 24px;
+}
+
+.sidebar-input-clear {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+  background: transparent;
+  border: none;
+}
+
+.sidebar-input-clear:hover {
+  color: var(--text);
+  background: var(--border);
+}
+
+.sidebar-row {
+  display: flex;
+  gap: 8px;
+}
+
+.sidebar-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar-col .sidebar-select {
+  margin-bottom: 0;
+}
+
+.sidebar-btn {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sidebar-btn:hover:not(:disabled) {
+  background: var(--border);
+}
+
+.sidebar-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.sidebar-btn-primary {
+  background: var(--cyan);
+  color: var(--bg);
+  border-color: var(--cyan);
+  font-weight: 600;
+}
+
+.sidebar-btn-primary:hover:not(:disabled) {
+  opacity: 0.9;
+  background: var(--cyan);
+}
+
+/* ── Fork menu (session creation modal) ── */
+.sidebar-fork-wrap {
+  position: relative;
+}
+
+.sidebar-fork-wrap .sidebar-btn {
+  width: 100%;
+}
+
+.sidebar-fork-menu {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  margin-bottom: 4px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  z-index: 120;
+}
+
+.sidebar-fork-option {
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sidebar-fork-option:hover {
+  background: var(--border);
+}

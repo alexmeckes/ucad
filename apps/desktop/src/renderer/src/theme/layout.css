@@ -1,0 +1,29 @@
+.app-shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  grid-template-rows: 1fr var(--statusbar-height);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-sidebar {
+  grid-row: 1 / -1;
+  border-right: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  background: var(--surface);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.app-statusbar {
+  grid-column: 2;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@ucad/orchestrator",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "echo 'no lint configured for orchestrator'"
+  },
+  "dependencies": {
+    "@ucad/contracts": "workspace:*",
+    "@ucad/storage-sqlite": "workspace:*",
+    "@ucad/policy-engine": "workspace:*",
+    "@ucad/workspace-manager": "workspace:*",
+    "@ucad/review-engine": "workspace:*",
+    "@ucad/codex-cli-adapter": "workspace:*",
+    "@ucad/claude-cli-adapter": "workspace:*",
+    "@ucad/gemini-cli-adapter": "workspace:*"
+  }
+}
