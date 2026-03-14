@@ -4,6 +4,7 @@ import type { ConversationItem } from "../../hooks/useEvents";
 import type { Session } from "../../hooks/useSessions";
 import { MessageBubble } from "./MessageBubble";
 import { PermissionOverlay } from "./PermissionOverlay";
+import { adapterLabel } from "../../utils/adapterLabel";
 import "./Conversation.css";
 
 interface ConversationProps {
@@ -21,14 +22,6 @@ interface ConversationProps {
   onQuickCreateSession: (adapterId: string) => void;
 }
 
-function adapterLabel(adapterId: string): string {
-  switch (adapterId) {
-    case "claude-cli": return "Claude";
-    case "codex-cli": return "Codex";
-    case "gemini-cli": return "Gemini";
-    default: return adapterId.replace(/-cli$/, "").replace(/^\w/, (c) => c.toUpperCase());
-  }
-}
 
 export function Conversation({ items, rawEvents, permissionEvent, onResolvePermission, isWaiting, projectName, session, adapters, onQuickCreateSession }: ConversationProps) {
   const bottomRef = useRef<HTMLDivElement>(null);

@@ -1,6 +1,7 @@
 import type { Project } from "../../hooks/useProjects";
 import type { Session } from "../../hooks/useSessions";
 import type { ReactNode } from "react";
+import { adapterLabel } from "../../utils/adapterLabel";
 
 interface ProjectSelectorProps {
   projects: Project[];
@@ -24,15 +25,6 @@ function truncatePath(fullPath: string): string {
   return "\u2026/" + parts.slice(-2).join("/");
 }
 
-/** Format adapter ID into a short display name */
-function adapterLabel(adapterId: string): string {
-  switch (adapterId) {
-    case "claude-cli": return "Claude";
-    case "codex-cli": return "Codex";
-    case "gemini-cli": return "Gemini";
-    default: return adapterId.replace(/-cli$/, "");
-  }
-}
 
 /** Accent colors for projects (Arc-style spaces) */
 const PROJECT_COLORS = [
@@ -105,6 +97,7 @@ function ThreadItem({
             <span className="thread-adapter">{adapter}</span>
             {model && <span className="thread-model">{model}</span>}
             {isWaiting && <span className="thread-approval">Needs approval</span>}
+            {stateKey === "interrupted" && <span className="thread-interrupted">Resumable</span>}
           </div>
         </div>
       </button>
@@ -196,7 +189,7 @@ export function ProjectSelector({
                     </>
                   )}
                   <div className="thread-quick-start">
-                    {adapters.map((a) => (
+                    {adapters.length > 0 ? adapters.map((a) => (
                       <button
                         key={a.id}
                         className="thread-quick-btn"
@@ -205,7 +198,9 @@ export function ProjectSelector({
                       >
                         + {a.name.replace(/ CLI$/, "")}
                       </button>
-                    ))}
+                    )) : (
+                      <span className="threads-empty">No adapters configured</span>
+                    )}
                   </div>
                 </div>
               )}

@@ -71,6 +71,7 @@ export function Composer({ onSend, disabled, placeholder, adapterLabel, sessionT
                       key={m}
                       className={`composer-model-option${m === model ? " composer-model-option-active" : ""}`}
                       onClick={() => onSwitchModel(m)}
+                      title={`New thread with ${m}`}
                     >
                       {m}
                     </button>

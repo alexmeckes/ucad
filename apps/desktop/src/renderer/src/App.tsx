@@ -10,6 +10,7 @@ import { useAdapterCatalog } from "./hooks/useAdapterCatalog";
 import { useAutoBootstrap } from "./hooks/useAutoBootstrap";
 import { useReview } from "./hooks/useReview";
 
+import { adapterLabel } from "./utils/adapterLabel";
 import { Sidebar } from "./components/Sidebar/Sidebar";
 import { Conversation } from "./components/Conversation/Conversation";
 import { Composer } from "./components/Composer/Composer";
@@ -163,7 +164,7 @@ export const App = () => {
           disabled={!selectedSessionId}
           placeholder="Send a message... (Enter to send, Shift+Enter for newline)"
           adapterLabel={selectedSession?.adapterId
-            ? selectedSession.adapterId.replace(/-cli$/, "").replace(/^\w/, (c) => c.toUpperCase())
+            ? adapterLabel(selectedSession.adapterId)
             : null}
           sessionTitle={selectedSession?.title ?? null}
           modelSuggestions={getModelSuggestionsForAdapter(selectedSession?.adapterId ?? selectedAdapterId)}

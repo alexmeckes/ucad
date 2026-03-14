@@ -339,6 +339,13 @@
   flex-shrink: 0;
 }
 
+.thread-interrupted {
+  color: var(--text-muted);
+  font-size: 10px;
+  font-style: italic;
+  flex-shrink: 0;
+}
+
 /* ── Quick-start adapter buttons ── */
 .thread-quick-start {
   display: flex;
